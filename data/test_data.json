@@ -1,11 +1,11 @@
 {
-	"title" : "Game Library"
+	"title" : "Game Library",
 	"games" :
 	[
 		{
 			"platform" :
 			{
-				"launch year" : 1989,
+				"launch_year" : 1989,
 				"name" : "Atari Lynx"
 			},
 			"title" : "Chip's Challenge",
@@ -14,7 +14,7 @@
 		{
 			"platform" :
 			{
-				"launch year" : 2003,
+				"launch_year" : 2003,
 				"name" : "Steam"
 			},
 			"title" : "Chip's Challenge 2",
@@ -23,11 +23,11 @@
 		{
 			"platform" :
 			{
-				"launch year" : 2006,
+				"launch_year" : 2006,
 				"name" : "Nintendo Wii"
 			},
 			"title" : "The Legend of Zelda: Twilight Princess",
 			"year" : 2006
-		},
+		}
 	]
 }
