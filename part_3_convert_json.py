@@ -28,17 +28,26 @@ def make_cc_level_pack_from_json(json_data):
 
         # upper_layer
         new_level.upper_layer = level["upper_layer"]
-        print(new_level.upper_layer)
+        #print(new_level.upper_layer)
 
         # lower_layer
         new_level.lower_layer = level["lower_layer"]
-        print(new_level.lower_layer)
+        #print(new_level.lower_layer)
 
         # optional_fields
-        
+        # title
+        new_level.optional_fields = level["optional_fields"]
+
+        #new_cc_field = cc_classes.CCField()
+        #new_cc_field.byte_val = level["optional_fields"]["byte_data"]
+        #new_cc_field.type_val = level["optional_fields"]["type_val"]
+        #new_level.add_field(new_cc_field)
+        #print(new_level)
 
         # Add that Game object to the game_library
         cc_level_pack.add_level(new_level)
+
+        print(new_level)
     ### End Add Code Here ###
 
     return cc_level_pack

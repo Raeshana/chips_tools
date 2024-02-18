@@ -6,21 +6,32 @@
 			"level_number" : 1,
 			"time" : 255,
 			"num_chips" : 5,
-			"upper_layer" : [0],
-			"lower_layer" : [0],
+			"upper_layer" : 
+			[
+				0, 1
+			],
+			"lower_layer" : 
+			[
+				0
+			],
 			"optional_fields" :
-			{
-				"title" : "Hehehahah",
-				"hint" : "This is a BIG hint",
-				"password" : [216, 219, 218, 221],
-				"monsters" : 
-				[
-					{
-						"x" : 20,
-						"y" : 20
-					}
-				]
-			}
+			[
+				{
+					"title" : "Hehehahah",
+					"type_val" : 3
+				},
+				
+				{
+					"hint" : "This is a BIG hint",
+					"type_val" : 7
+				},
+				
+				{
+					"password" : [216, 219, 218, 221],
+					"type_val" : 6
+				}
+				
+			]
 		}
 	]
 }
