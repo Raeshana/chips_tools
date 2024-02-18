@@ -1,0 +1,26 @@
+{
+	"title" : "Level Pack",
+	"levels" :
+	[
+		{
+			"level_number" : 1,
+			"time" : 255,
+			"num_chips" : 5,
+			"upper_layer" : [0],
+			"lower_layer" : [0],
+			"optional_fields" :
+			{
+				"title" : "Hehehahah",
+				"hint" : "This is a BIG hint",
+				"password" : [216, 219, 218, 221],
+				"monsters" : 
+				[
+					{
+						"x" : 20,
+						"y" : 20
+					}
+				]
+			}
+		}
+	]
+}
