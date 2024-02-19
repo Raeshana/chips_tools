@@ -45,13 +45,32 @@ def make_cc_level_pack_from_json(json_data):
 
             # traps
             elif field["type_val"] == 4:
-                new_traps_field = cc_classes.CCTrapControlsField(field["byte_val"])
-                new_level.add_field(new_traps_field)
+                traps = field["byte_val"]
+
+                # list to store CCTrapControl objects
+                traps_list = []
+                # populate list with CCCloningMachineControl objects
+                for trap in traps:
+                    new_cc_trap_control = cc_classes.CCTrapControl(trap["bx"], trap["by"], trap["tx"], trap["ty"])
+                    traps_list.append(new_cc_trap_control)
+
+                new_cc_trap_controls_field = cc_classes.CCTrapControlsField(traps_list)
+                new_level.add_field(new_cc_trap_controls_field)
 
             # machines
             elif field["type_val"] == 5:
-                new_machines_field = cc_classes.CCCloningMachineControlsField(field["byte_val"])
-                new_level.add_field(new_machines_field)
+                machines = field["byte_val"]
+
+                # list to store CCCloningMachineControl objects
+                machines_list = []
+                # populate list with CCCloningMachineControl objects
+                for machine in machines:
+                    new_cc_cloning_machine_control = cc_classes.CCCloningMachineControl(machine["bx"], machine["by"],
+                                                                                        machine["tx"], machine["ty"])
+                    machines_list.append(new_cc_cloning_machine_control)
+
+                new_cc_cloning_machine_controls_field = cc_classes.CCCloningMachineControlsField(machines_list)
+                new_level.add_field(new_cc_cloning_machine_controls_field)
 
             # encoded password
             elif field["type_val"] == 6:
@@ -67,9 +86,9 @@ def make_cc_level_pack_from_json(json_data):
             elif field["type_val"] == 10:
                 monsters = field["byte_val"]
 
-                # list to store monster coordinates
+                # list to store CCCoordinates of monsters
                 monsters_list = []
-                # populate list of monster coordinates
+                # populate list with CCCoordinates of monsters
                 for monster in monsters:
                     new_cc_coordinate = cc_classes.CCCoordinate(monster["x"], monster["y"])
                     monsters_list.append(new_cc_coordinate)
