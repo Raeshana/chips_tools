@@ -1,7 +1,7 @@
 import cc_dat_utils
 
 #Part 1
-input_dat_file = cc_dat_utils.make_cc_level_pack_from_dat("data/pfgd_test.dat")
+input_dat_file = cc_dat_utils.make_cc_level_pack_from_dat("data/rsookhoo_cc1.dat")
 print(input_dat_file)
 
 

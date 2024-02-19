@@ -35,9 +35,9 @@ def make_cc_level_pack_from_json(json_data):
         #print(new_level.lower_layer)
 
         # optional_fields
-        new_optional_fields = level["optional_fields"]
+        optional_fields = level["optional_fields"]
 
-        for field in new_optional_fields:
+        for field in optional_fields:
             # title
             if field["type_val"] == 3:
                 new_title_field = cc_classes.CCMapTitleField(field["byte_val"])
@@ -65,8 +65,13 @@ def make_cc_level_pack_from_json(json_data):
 
             # monsters
             elif field["type_val"] == 10:
-                new_monsters_field = cc_classes.CCMonsterMovementField(field["byte_val"])
-                new_level.add_field(new_monsters_field)
+                monsters = field["byte_val"]
+                monsters_list = []
+                for monster in monsters:
+                    new_cc_coordinate = cc_classes.CCCoordinate(monster["x"], monster["y"])
+                    monsters_list.append(new_cc_coordinate)
+                new_monster_field = cc_classes.CCMonsterMovementField(monsters_list)
+                new_level.add_field(new_monster_field)
 
         # Add that Game object to the game_library
         cc_level_pack.add_level(new_level)
