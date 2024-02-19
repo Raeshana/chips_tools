@@ -66,10 +66,14 @@ def make_cc_level_pack_from_json(json_data):
             # monsters
             elif field["type_val"] == 10:
                 monsters = field["byte_val"]
+
+                # list to store monster coordinates
                 monsters_list = []
+                # populate list of monster coordinates
                 for monster in monsters:
                     new_cc_coordinate = cc_classes.CCCoordinate(monster["x"], monster["y"])
                     monsters_list.append(new_cc_coordinate)
+
                 new_monster_field = cc_classes.CCMonsterMovementField(monsters_list)
                 new_level.add_field(new_monster_field)
 
