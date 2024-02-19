@@ -35,14 +35,38 @@ def make_cc_level_pack_from_json(json_data):
         #print(new_level.lower_layer)
 
         # optional_fields
-        # title
-        new_level.optional_fields = level["optional_fields"]
+        new_optional_fields = level["optional_fields"]
 
-        #new_cc_field = cc_classes.CCField()
-        #new_cc_field.byte_val = level["optional_fields"]["byte_data"]
-        #new_cc_field.type_val = level["optional_fields"]["type_val"]
-        #new_level.add_field(new_cc_field)
-        #print(new_level)
+        for field in new_optional_fields:
+            # title
+            if field["type_val"] == 3:
+                new_title_field = cc_classes.CCMapTitleField(field["byte_val"])
+                new_level.add_field(new_title_field)
+
+            # traps
+            elif field["type_val"] == 4:
+                new_traps_field = cc_classes.CCTrapControlsField(field["byte_val"])
+                new_level.add_field(new_traps_field)
+
+            # machines
+            elif field["type_val"] == 5:
+                new_machines_field = cc_classes.CCCloningMachineControlsField(field["byte_val"])
+                new_level.add_field(new_machines_field)
+
+            # encoded password
+            elif field["type_val"] == 6:
+                new_password_field = cc_classes.CCEncodedPasswordField(field["byte_val"])
+                new_level.add_field(new_password_field)
+
+            # hint
+            elif field["type_val"] == 7:
+                new_hint_field = cc_classes.CCMapHintField(field["byte_val"])
+                new_level.add_field(new_hint_field)
+
+            # monsters
+            elif field["type_val"] == 10:
+                new_monsters_field = cc_classes.CCMonsterMovementField(field["byte_val"])
+                new_level.add_field(new_monsters_field)
 
         # Add that Game object to the game_library
         cc_level_pack.add_level(new_level)
@@ -62,4 +86,4 @@ json_data = json.load(reader)
 new_cc_level_pack = make_cc_level_pack_from_json(json_data)
 
 #Save converted data to DAT file
-#cc_dat_utils.write_cc_level_pack_to_dat(cc_dat, dat_file)
+cc_dat_utils.write_cc_level_pack_to_dat(new_cc_level_pack, "data/rsookhoo_cc1.dat")

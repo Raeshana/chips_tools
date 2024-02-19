@@ -79,20 +79,19 @@
 			"optional_fields" :
 			[
 				{
-					"title" : "Hehehahah",
-					"type_val" : 3
+					"type_val" : 3,
+					"byte_val" : "Hehehahah"
 				},
 				
 				{
-					"hint" : "This is a BIG hint",
-					"type_val" : 7
+					"type_val" : 7,
+					"byte_val" : "This is a BIG hint"
 				},
 				
 				{
-					"password" : [216, 219, 218, 221],
-					"type_val" : 6
+					"type_val" : 6,
+					"byte_val" : [216, 219, 218, 221]
 				}
-				
 			]
 		}
 	]
