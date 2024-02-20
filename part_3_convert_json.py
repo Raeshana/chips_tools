@@ -2,6 +2,7 @@ import cc_dat_utils
 import cc_classes
 import json
 
+# Creates and returns a cc_level_pack object(defined in cc_classes) from loaded json_data
 def make_cc_level_pack_from_json(json_data):
     # Initialize a new CCLevelPack
     cc_level_pack = cc_classes.CCLevelPack()
@@ -96,10 +97,10 @@ def make_cc_level_pack_from_json(json_data):
                 new_monster_field = cc_classes.CCMonsterMovementField(monsters_list)
                 new_level.add_field(new_monster_field)
 
-        # Add that Game object to the game_library
+        # Add that level object to the cc_level_pack
         cc_level_pack.add_level(new_level)
 
-        print(new_level)
+        #print(new_level)
     ### End Add Code Here ###
 
     return cc_level_pack
