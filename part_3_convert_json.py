@@ -107,7 +107,7 @@ def make_cc_level_pack_from_json(json_data):
 
 #Part 3
 #Load your custom JSON file
-input_json_file = "data/rsookhoo_cc1.json"
+input_json_file = "data/rsookhoo_cc_level_pack.json"
 
 #Convert JSON data to CCLevelPack
 reader = open(input_json_file, "r")
@@ -115,4 +115,4 @@ json_data = json.load(reader)
 new_cc_level_pack = make_cc_level_pack_from_json(json_data)
 
 #Save converted data to DAT file
-cc_dat_utils.write_cc_level_pack_to_dat(new_cc_level_pack, "data/rsookhoo_cc1.dat")
+cc_dat_utils.write_cc_level_pack_to_dat(new_cc_level_pack, "data/rsookhoo_cc_level_pack.dat")
